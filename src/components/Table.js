@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-function Table({list } ) {
+function Table({list,total } ) {
   return (
     <>
         <table width = "100%" className=' mb-10'>
-            <thead>
-                <tr className='bg-gray-100 p-1'>
+            <thead className=''>
+                <tr className='bg-gray-100 p-6'>
                     <td className='font-bold'> 
                         Description
                     </td>
@@ -40,6 +40,12 @@ function Table({list } ) {
         ))}
             
         </table>
+
+        
+       
+        {/* <div>
+          <h2 className='text-gray-800 text-2xl font-bold'>Total Amount: {convertToWords.(total)}</h2>
+        </div> */}
     
     </>
   )

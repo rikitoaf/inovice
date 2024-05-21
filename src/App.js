@@ -1,6 +1,6 @@
 
 import './App.css';
-import {useState} from "react";
+import {useState, useRef} from "react";
 import logo from "./assets/festivida.png";
 import ClientDetails from './components/ClientDetails';
 import Dates from './components/Dates';
@@ -10,10 +10,12 @@ import MainDetails from './components/MainDetails';
 import Notes from './components/Notes';
 import Table from './components/Table';
 import TableForm from './components/TableForm';
+import ReactToPrint from 'react-to-print';
+import Bill from './components/Bill';
 
 function App() {
 
-  const [showInvoice, setShowInvoice] = useState(true)
+  const [showInvoice, setShowInvoice] = useState(false)
   const handlePrint = () => {
     window.print()
   }
@@ -29,9 +31,9 @@ function App() {
   const [clientname, setClientName] = useState("Thomas Edison")
   const [clientaddress, setClientAddress] = useState("460/A, Road 7, Avenue 6, Mirpur DOHS")
   const [invoicenumber, setInvoiceNumber] = useState("1341 036546 2315")
-  const [invoicedate, setInvoiceDate] = useState("20/7/2021")
-  const [duedate, setDueDate] = useState("20/7/2021")
-  const [notes, setNotes] = useState("experimental code")
+  const [invoicedate, setInvoiceDate] = useState("")
+  const [duedate, setDueDate] = useState("")
+  const [notes, setNotes] = useState("")
 
   // table content
   const [description, setDescription] = useState("")
@@ -42,6 +44,8 @@ function App() {
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
 
+  const componentRef = useRef()
+
     function handleChange(e) {
       console.log(e.target.files);
       setFile(URL.createObjectURL(e.target.files[0]));
@@ -51,7 +55,12 @@ function App() {
   return (
    <main className='m-5 p-5 md:max-w-xl md:mx-auto lg:max-w-2xl xl:max-w-4xl xl:mx-auto bg-white rounded shadow' > 
       
-      {showInvoice ? <div>
+      {showInvoice ? 
+      
+      <>
+
+      <ReactToPrint trigger={()=> <button onClick={handlePrint} className='pl-5 bg-gray-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300 '>Print/Download</button>} content={()=> componentRef.current}/>
+      <div ref = {componentRef} className='p-8'>
       <Header handlePrint={handlePrint} logo= {logo}/>
 
       <MainDetails name= {name} address = {address} file= {file}/>
@@ -61,6 +70,9 @@ function App() {
      
 
       <Dates invoicenumber = {invoicenumber} invoicedate = {invoicedate} duedate = {duedate}/>
+
+      <Bill  total={total} />
+      
           
       <Table description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal}/>
 
@@ -68,8 +80,11 @@ function App() {
       <Notes notes = {notes}/>
       <Footer name={name} address= {address} website = {website} email = {email} phone = {phone} bankname = {bankname} bankaccountnumber= {bankaccountnumber}  clientname = {clientname} />
 
+      
+      </div>
       <button onClick = {()=> setShowInvoice(false)} className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300 mt-5'>Edit Information</button>
-      </div>: (
+      </>
+      : (
         <>
            {/* name, address, email, phone, bankname, website, bankaccountnumber, clientname, clientaddress,
         invoicenumber, invoicedate, duedate, notes */}
@@ -183,7 +198,7 @@ function App() {
        
        
       <article>
-        <TableForm description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList}/>
+        <TableForm description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList} total = {total} setTotal= {setTotal}/>
       </article>
 
       

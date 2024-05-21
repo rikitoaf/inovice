@@ -52,6 +52,22 @@ export default function TableForm({description, setDescription , rate , setRate,
   }
 
   // calculate total amount
+  let rows = document.querySelectorAll(".amount")
+  let sum = 0
+
+
+  useEffect(()=> {
+    for (let i =0; i<rows.length; i++){
+      if (rows[i].className ==="amount"){
+        sum+= isNaN(rows[i].innerHTML) ? 0: parseInt(rows[i].innerHTML)
+  
+      }
+    }
+    setTotal(sum)
+    console.log(sum)
+  },)
+
+  
   
 
   return (
@@ -139,7 +155,7 @@ export default function TableForm({description, setDescription , rate , setRate,
                     <td><img src={file}  className=" h-20" alt="" /></td>
                     <td>{rate}</td>
                     <td>{quantity}</td>
-                    <td className='amount'>{amount}</td>
+                    <td className= "amount">{amount}</td>
                     <td><button className= "text-red-500 font-bold text-xl"onClick={()=> deleteRow(id)}><AiOutlineDelete/></button></td>
                     <td><button className= "text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineDelete/></button></td>
                 </tr>
@@ -149,6 +165,10 @@ export default function TableForm({description, setDescription , rate , setRate,
         ))}
             
         </table>
+
+        <div>
+          <h2 className='flex items-end justify-end text-gray-800 text-4xl font-bold'>Total Amount: {total.toLocaleString()}</h2>
+        </div>
     </>
   
   )
