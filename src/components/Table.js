@@ -4,22 +4,22 @@ import React from 'react'
 function Table({list,total } ) {
   return (
     <>
-        <table width = "100%" className=' mb-10'>
+        <table width = "100%" className=' mb-10 table-fixed'>
             <thead className=''>
                 <tr className='bg-gray-100 p-6'>
-                    <td className='font-bold'> 
+                    <td className='font-bold w-1/8'> 
                         Description
                     </td>
-                    <td className='font-bold'>
+                    <th className='font-bold w-1/2'>
                         Sample Design 
-                    </td>
-                    <td className='font-bold'>
+                    </th>
+                    <td className='font-bold w-1/8'>
                         Rate
                     </td>
-                    <td className='font-bold'>
+                    <td className='font-bold w-1/8'>
                         Quantity
                     </td>
-                    <td className='font-bold'>
+                    <td className='font-bold w-1/8'>
                         Total Amount
                     </td>
                 </tr>
@@ -28,8 +28,10 @@ function Table({list,total } ) {
             <React.Fragment key={id}>
                 <tbody>
                 <tr >
-                    <td>{description}</td>
-                    <td><img src={file}  className=" h-20" alt="" /></td>
+                    <td >
+                        <p>Title</p>
+                        {description}</td>
+                    <td><img src={file}  className="p-3 h-[200px] object-contain object-center" alt="" /></td>
                     <td>{rate}</td>
                     <td>{quantity}</td>
                     <td>{amount}</td>

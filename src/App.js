@@ -30,16 +30,18 @@ function App() {
   const [bankaccountnumber, setBankAccountNumber] = useState("1234 456 789")
   const [clientname, setClientName] = useState("Thomas Edison")
   const [clientaddress, setClientAddress] = useState("460/A, Road 7, Avenue 6, Mirpur DOHS")
-  const [invoicenumber, setInvoiceNumber] = useState("1341 036546 2315")
-  const [invoicedate, setInvoiceDate] = useState("")
-  const [duedate, setDueDate] = useState("")
-  const [notes, setNotes] = useState("")
+  const [clientPhone, setClientPhone] = useState("01626154884")
+  const [venue, setVenue] = useState("Anam Plaza")
+  const [venuedate, setVenueDate] = useState("17/3/24")
+  const [venuetype, setVenueType] = useState("Holud")
+  const [notes, setNotes] = useState("Add any exceptional things")
 
   // table content
-  const [description, setDescription] = useState("")
+  const [title, setTitle] = useState("row no")
+  const [description, setDescription] = useState("row no")
   const [file, setFile] = useState();
-  const [rate, setRate] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [rate, setRate] = useState("5");
+  const [quantity, setQuantity] = useState("44");
   const [amount, setAmount] = useState("");
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
@@ -63,18 +65,20 @@ function App() {
       <div ref = {componentRef} className='p-8'>
       <Header handlePrint={handlePrint} logo= {logo}/>
 
-      <MainDetails name= {name} address = {address} file= {file}/>
+      {/* <MainDetails name= {name} address = {address} file= {file}/> */}
 
      
-      <ClientDetails clientname = {clientname} clientaddress = {clientaddress}/>
+      <ClientDetails clientname = {clientname} clientaddress = {clientaddress} clientPhone = {clientPhone}/>
      
 
-      <Dates invoicenumber = {invoicenumber} invoicedate = {invoicedate} duedate = {duedate}/>
+      <Dates venue = {venue} venuetype = {venuetype} venuedate = {venuedate}/>
 
-      <Bill  total={total} />
+      
       
           
       <Table description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal}/>
+
+      <Bill  total={total} />
 
      
       <Notes notes = {notes}/>
@@ -115,7 +119,7 @@ function App() {
           <div className="flex flex-col"> 
 
           <label htmlFor="email">Email</label>
-          <input type="email" name = "email" id = "email" placeholder=' email' autoComplete='off'
+          <input type="email" name = "email" id = "email" placeholder='email' autoComplete='off'
           value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
 
@@ -150,7 +154,7 @@ function App() {
        
         </article>
 
-        <article className="md:grid grid-cols-2 gap-10 md:mt-16">
+        <article className="md:grid grid-cols-3 gap-10 md:mt-16">
           <div className="flex flex-col">
           <label htmlFor="clientname">  Client Name</label>
           <input type="text" name = "text" id = "clientname" placeholder=' clientname' autoComplete='off'
@@ -165,6 +169,14 @@ function App() {
 
           </div>
 
+          <div className="flex flex-col">
+            
+            <label htmlFor="clientPhone">  Client Contact Number</label>
+            <input type="text" name = "clientPhone" id = "clientPhone" placeholder=' clientPhone' autoComplete='off'
+            value={clientPhone} onChange={(e) => setClientPhone(e.target.value)}/>
+
+          </div>
+
         </article>
 
 
@@ -172,23 +184,23 @@ function App() {
           <div className="flex flex-col"> 
 
             
-          <label htmlFor="invoicenumber">  Invoice Number</label>
-          <input type="text" name = "text" id = "invoicenumber" placeholder=' invoicenumber' autoComplete='off'
-          value={invoicenumber} onChange={(e) => setInvoiceNumber(e.target.value)}/>
+          <label htmlFor="venue">  Venue</label>
+          <input type="text" name = "text" id = "venue" placeholder=' venue' autoComplete='off'
+          value={venue} onChange={(e) => setVenue(e.target.value)}/>
 
           </div>
 
           <div className="flex flex-col"> 
 
-          <label htmlFor="invoicedate">  Invoice Date</label>
+          <label htmlFor="venuedate">  Venue Date</label>
           <input type="date" name = "text" id = "invoicedate" placeholder=' invoicedate' autoComplete='off'
-          value={invoicedate} onChange={(e) => setInvoiceDate(e.target.value)}/>
+          value={venuedate} onChange={(e) => setVenueDate(e.target.value)}/>
           </div>
 
           <div className="flex flex-col"> 
-          <label htmlFor="duedate">  Due Date</label>
-          <input type="date" name = "text" id = "duedate" placeholder=' duedate' autoComplete='off'
-          value={duedate} onChange={(e) => setDueDate(e.target.value)}/>
+          <label htmlFor="venuetype">  Venue Type</label>
+          <input type="text" name = "text" id = "venuetype" placeholder=' venuetype' autoComplete='off'
+          value={venuetype} onChange={(e) => setVenueType(e.target.value)}/>
 
           </div>
 

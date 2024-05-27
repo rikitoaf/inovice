@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Dates({invoicenumber, invoicedate, duedate}) {
+export default function Dates({venue, venuetype, venuedate}) {
   return (
-    <article className='mt-10 mb-20 flex  items-end justify-end'>
+    <article className=' mb-20 flex  items-end justify-end'>
         <ul>
-          <li className='p-1'><span className='font-bold'>Invoice number:</span>{invoicenumber}</li>
-          <li className='p-1 bg-gray-100'><span className='font-bold'>Invoice Data:</span>{invoicedate}</li>
-          <li className='p-1'><span className='font-bold'>Due Date:</span>{duedate}</li>
+          <li className='p-1  bg-gray-100'><span className='font-bold'>Venue: </span>{venue}</li>
+          <li className='p-1'><span className='font-bold'>Venue Type: </span>{venuetype}</li>
+          <li className='p-1'><span className='font-bold'>Venue Date: </span>{venuedate}</li>
         </ul>
       </article>
   )
