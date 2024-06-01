@@ -16,7 +16,7 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
                 </svg>
             </div>
             <p class="ml-3 leading-5 text-gray-600">
-                Correction of Design is possible. Design correction will resilt in increase and decrease of total budget.
+                Correction of Design is possible. Design correction will result in increase and decrease of total budget.
             </p>
         </li>
         <li class="flex items-start mt-5 lg:col-span-1 lg:mt-0">
