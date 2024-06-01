@@ -13,6 +13,7 @@ import TableForm from './components/TableForm';
 import ReactToPrint from 'react-to-print';
 import Bill from './components/Bill';
 
+
 function App() {
 
   const [showInvoice, setShowInvoice] = useState(false)
@@ -33,7 +34,8 @@ function App() {
   const [clientPhone, setClientPhone] = useState("01626154884")
   const [venue, setVenue] = useState("Anam Plaza")
   const [venuedate, setVenueDate] = useState("17/3/24")
-  const [venuetype, setVenueType] = useState("Holud")
+  const [venuetype, setVenueType] = useState("")
+  // const [selectedOption, setSelectedOption] = useState('');
   const [notes, setNotes] = useState("Add any exceptional things")
 
   // table content
@@ -45,6 +47,7 @@ function App() {
   const [amount, setAmount] = useState("");
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
+  const [selectedTitle, setSelectedTitle] = useState('');
 
   const componentRef = useRef()
 
@@ -76,7 +79,7 @@ function App() {
       
       
           
-      <Table description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal}/>
+      <Table selectedTitle = {selectedTitle} description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal}/>
 
       <Bill  total={total} />
 
@@ -193,15 +196,22 @@ function App() {
           <div className="flex flex-col"> 
 
           <label htmlFor="venuedate">  Venue Date</label>
-          <input type="date" name = "text" id = "invoicedate" placeholder=' invoicedate' autoComplete='off'
-          value={venuedate} onChange={(e) => setVenueDate(e.target.value)}/>
+          <input type="date" name = "text" id = "venuedate" placeholder=' invoicedate' autoComplete='off'
+          value={venuedate} onChange={(e) => setVenueDate(e.target.value)} />
           </div>
 
           <div className="flex flex-col"> 
-          <label htmlFor="venuetype">  Venue Type</label>
-          <input type="text" name = "text" id = "venuetype" placeholder=' venuetype' autoComplete='off'
-          value={venuetype} onChange={(e) => setVenueType(e.target.value)}/>
+            <label htmlFor="venuetype">  Venue Type</label>
+            
 
+            <select value={venuetype} onChange={(e) => setVenueType(e.target.value)}>
+            <option value="">select venue Type</option>
+            <option value="Holud">Holud</option>
+            <option value="Mehedi">Mehedi</option>
+            <option value="Marriage">Marriage</option>
+            {/* Add more options as needed */}
+          </select>
+          
           </div>
 
         </article>
@@ -210,7 +220,7 @@ function App() {
        
        
       <article>
-        <TableForm description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList} total = {total} setTotal= {setTotal}/>
+        <TableForm selectedTitle = {selectedTitle} setSelectedTitle = {setSelectedTitle} description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList} total = {total} setTotal= {setTotal}/>
       </article>
 
       

@@ -24,12 +24,12 @@ function Table({list,total } ) {
                     </td>
                 </tr>
             </thead>
-        {list.map(({id,description, quantity, rate,file, amount}) => (
+        {list.map(({id,selectedTitle,description, quantity, rate,file, amount}) => (
             <React.Fragment key={id}>
                 <tbody>
                 <tr >
                     <td >
-                        <p>Title</p>
+                        <p>{selectedTitle}</p>
                         {description}</td>
                     <td><img src={file}  className="p-3 h-[200px] object-contain object-center" alt="" /></td>
                     <td>{rate}</td>

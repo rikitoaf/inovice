@@ -2,13 +2,16 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai"
 import { v4 as uuidv4 } from 'uuid';
+import TitleNames from './TitleName';
 
-export default function TableForm({description, setDescription , rate , setRate,quantity, setQuantity, amount ,setAmount,file, setFile,handleChange, list, setList, total, setTotal}) {
+
+export default function TableForm({selectedTitle, setSelectedTitle, description, setDescription , rate , setRate,quantity, setQuantity, amount ,setAmount,file, setFile,handleChange, list, setList, total, setTotal}) {
   const [isEditing, setEditing] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault()
     const newItems = {
        id :uuidv4(),
+       selectedTitle,
        description,
        file,
        rate,
@@ -16,6 +19,7 @@ export default function TableForm({description, setDescription , rate , setRate,
        amount,
     }
 
+    setSelectedTitle("")
     setDescription("")
     setFile()
     setQuantity("")
@@ -37,14 +41,15 @@ export default function TableForm({description, setDescription , rate , setRate,
   }, [amount, rate, quantity, setAmount])
 
 // delete rows
-  const deleteRow = (id)=> setList(list.filter((row) => row.id !=id))
+  const deleteRow = (id)=> setList(list.filter((row) => row.id !==id))
 
 
 // Editing each rows
   const editRow = (id)=> {
     const editingRow = list.find ((row)=> row.id ===id)
-    setList(list.filter((row)=> row.id != id))
+    setList(list.filter((row)=> row.id !== id))
     setEditing(true)
+    setSelectedTitle(editingRow.selectedTitle)
     setDescription(editingRow.description)
     setRate(editingRow.rate)
     setQuantity(editingRow.quantity)
@@ -73,18 +78,39 @@ export default function TableForm({description, setDescription , rate , setRate,
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col md:mt-16">
-            <label htmlFor="description">Item description</label>
-            <input
-              type="text"
-              name="description"
-              id="description"
-              placeholder="Item description"
-              maxLength={96}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-      </div>
+
+        <div className='md:grid grid-cols-2 gap-10 md:mt-16'>
+          <div  className="flex flex-col ">
+          <label htmlFor="description">Item Title</label>
+            <select name="itemtitle" id="itemtitle" value={selectedTitle}
+            onChange={(e) => setSelectedTitle(e.target.value)}>
+              {TitleNames.map((title) =>(
+                <option  value= {title} >
+                 {title}
+                </option>
+              ))}
+              {/* <option value="">select </option>
+              <option value="Stage">Stage</option>
+              <option value="Table">Table</option>
+              <option value="Chair">Chair</option> */}
+            </select>
+
+          </div>
+          <div className="flex flex-col ">
+              <label htmlFor="description">Item description</label>
+              <input
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Item description"
+                maxLength={96}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+          </div>
+
+        </div>
+        
 
       <div className='md:grid grid-cols-3 gap-10'>
         <div className="flex flex-col ">
@@ -130,6 +156,7 @@ export default function TableForm({description, setDescription , rate , setRate,
       <table width = "100%" className=' mb-10'>
             <thead>
                 <tr className='bg-gray-100 p-1'>
+                    <td className='font-bold'>Title</td>
                     <td className='font-bold'> 
                         Description
                     </td>
@@ -147,17 +174,21 @@ export default function TableForm({description, setDescription , rate , setRate,
                     </td>
                 </tr>
             </thead>
-        {list.map(({id,description, quantity, rate,file, amount}) => (
+        {list.map(({id, selectedTitle, description, quantity, rate, file, amount}) => (
             <React.Fragment key={id}>
                 <tbody>
                 <tr >
-                    <td>{description}</td>
+                  <td>{selectedTitle}</td>
+                    <td>
+
+                      {description}
+                    </td>
                     <td><img src={file}  className=" h-20" alt="" /></td>
                     <td>{rate}</td>
                     <td>{quantity}</td>
                     <td className= "amount">{amount}</td>
                     <td><button className= "text-red-500 font-bold text-xl"onClick={()=> deleteRow(id)}><AiOutlineDelete/></button></td>
-                    <td><button className= "text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineDelete/></button></td>
+                    <td><button className= "text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineEdit/></button></td>
                 </tr>
             </tbody>
             </React.Fragment>
