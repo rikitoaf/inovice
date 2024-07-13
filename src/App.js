@@ -37,7 +37,7 @@ function App() {
   const [venuedate, setVenueDate] = useState("")
   const [venuetype, setVenueType] = useState("")
   // const [selectedOption, setSelectedOption] = useState('');
-  const [notes, setNotes] = useState("Add any exceptional things")
+  const [notes, setNotes] = useState("")
 
   // table content
   const [title, setTitle] = useState("")
