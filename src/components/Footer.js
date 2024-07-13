@@ -52,17 +52,17 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
 
         <li>
           For any query, Please Contact: <div>
-                <div class="mt-2 font-bold">
-                {name}
+                <div class="mt-2 font-bold text-xl">
+                    {name}
                 </div> 
                 <div>
                     {address}
                 </div>
                 <div>
-                House # 460/A, Road #6, Avenue #7, Mirpur DOHS, Dhaka, Bangladesh
+                    House # 460/A, Road #6, Avenue #7, Mirpur DOHS, Dhaka, Bangladesh
                 </div>
                 <div>
-                {phone}
+                    {phone}
                 </div>
             </div>
         </li>
