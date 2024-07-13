@@ -2,6 +2,7 @@
 import './App.css';
 import {useState, useRef} from "react";
 import logo from "./assets/festivida.png";
+
 import ClientDetails from './components/ClientDetails';
 import Dates from './components/Dates';
 import Footer from './components/Footer';
@@ -22,28 +23,28 @@ function App() {
   }
 
 
-  const [name, setName] = useState("Abdul Fattah Rakib")
-  const [address, setAddress] = useState("101/2/A pulpar, mohammadpur")
-  const [email, setEmail] = useState("abdulfattahrakib@gamail.com")
-  const [phone, setPhone] = useState("+880 1626154884")
+  const [name, setName] = useState("Moynal Hossain Saeed")
+  const [address, setAddress] = useState("Executive Director")
+  const [email, setEmail] = useState("festivida74@gmail.com")
+  const [phone, setPhone] = useState("01974-547951")
   const [bankname, setBankName] = useState("Premiere Bank")
-  const [website, setWebsite] = useState("agventureconsultancy.com")
-  const [bankaccountnumber, setBankAccountNumber] = useState("1234 456 789")
-  const [clientname, setClientName] = useState("Thomas Edison")
-  const [clientaddress, setClientAddress] = useState("460/A, Road 7, Avenue 6, Mirpur DOHS")
-  const [clientPhone, setClientPhone] = useState("01626154884")
-  const [venue, setVenue] = useState("Anam Plaza")
-  const [venuedate, setVenueDate] = useState("17/3/24")
+  const [website, setWebsite] = useState("www.festivida.com.bd")
+  const [bankaccountnumber, setBankAccountNumber] = useState("")
+  const [clientname, setClientName] = useState("")
+  const [clientaddress, setClientAddress] = useState("")
+  const [clientPhone, setClientPhone] = useState("")
+  const [venue, setVenue] = useState("")
+  const [venuedate, setVenueDate] = useState("")
   const [venuetype, setVenueType] = useState("")
   // const [selectedOption, setSelectedOption] = useState('');
   const [notes, setNotes] = useState("Add any exceptional things")
 
   // table content
-  const [title, setTitle] = useState("row no")
-  const [description, setDescription] = useState("row no")
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
   const [file, setFile] = useState();
-  const [rate, setRate] = useState("5");
-  const [quantity, setQuantity] = useState("44");
+  const [rate, setRate] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [amount, setAmount] = useState("");
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
@@ -109,7 +110,7 @@ function App() {
 
 
           <div className="flex flex-col">
-            <label htmlFor="address">  Address</label>
+            <label htmlFor="address">  Title</label>
             <input type="text" name = "text" id = "address" placeholder=' address' autoComplete='off'
             value={address} onChange={(e) => setAddress(e.target.value)}/>
           </div>

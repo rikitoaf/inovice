@@ -51,7 +51,20 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
         </li>
 
         <li>
-          For any query, Please Contact: <div><br />{name} <br />{address} <br />{phone}</div>
+          For any query, Please Contact: <div>
+                <div class="mt-2 font-bold">
+                {name}
+                </div> 
+                <div>
+                    {address}
+                </div>
+                <div>
+                House # 460/A, Road #6, Avenue #7, Mirpur DOHS, Dhaka, Bangladesh
+                </div>
+                <div>
+                {phone}
+                </div>
+            </div>
         </li>
        
       
