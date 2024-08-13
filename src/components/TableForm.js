@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import TitleNames from './TitleName';
 
 
-export default function TableForm({selectedTitle, setSelectedTitle, description, setDescription , rate , setRate,quantity, setQuantity, amount ,setAmount,file, setFile,handleChange, list, setList, total, setTotal}) {
+export default function TableForm({selectedTitle, setSelectedTitle, description, setDescription , rate , setRate,quantity, setQuantity, amount ,setAmount,file, setFile,handleChange, list, setList, total, setTotal, discount , setDiscount}) {
   const [isEditing, setEditing] = useState(false)
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -68,7 +68,7 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
   
       }
     }
-    setTotal(sum)
+    setTotal(sum - discount)
     console.log(sum)
   },)
 
@@ -198,6 +198,7 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
         </table>
 
         <div>
+        <h2 className='flex items-end justify-end text-gray-800 text-2xl font-bold'>Discount Amount: {discount}</h2>
           <h2 className='flex items-end justify-end text-gray-800 text-4xl font-bold'>Total Amount: {total.toLocaleString()}</h2>
         </div>
     </>

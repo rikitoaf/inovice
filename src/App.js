@@ -49,6 +49,7 @@ function App() {
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
   const [selectedTitle, setSelectedTitle] = useState('');
+  const [discount, setDiscount] = useState(0)
 
   const componentRef = useRef()
 
@@ -80,7 +81,7 @@ function App() {
       
       
           
-      <Table selectedTitle = {selectedTitle} description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal}/>
+      <Table selectedTitle = {selectedTitle} description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal} />
 
       <Bill  total={total} />
 
@@ -183,6 +184,8 @@ function App() {
 
         </article>
 
+        
+
 
         <article className="md:grid grid-cols-3 gap-10">
           <div className="flex flex-col"> 
@@ -230,11 +233,20 @@ function App() {
 
         </article>
        
+        <article>
+          <div className="flex flex-col"> 
 
+                  
+              <label htmlFor="discount">  Discount</label>
+              <input type="number" name = "text" id = "discount" placeholder=' discount BDT' autoComplete='off'
+              value={discount} onChange={(e) => setDiscount(e.target.value)}/>
+
+          </div>
+        </article>
        
        
       <article>
-        <TableForm selectedTitle = {selectedTitle} setSelectedTitle = {setSelectedTitle} description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList} total = {total} setTotal= {setTotal}/>
+        <TableForm selectedTitle = {selectedTitle} setSelectedTitle = {setSelectedTitle} description= {description} setDescription = {setDescription} rate = {rate} setRate= {setRate} quantity= {quantity} setQuantity= {setQuantity} amount = {amount} setAmount={setAmount} file = {file} setFile = {setFile} handleChange = {handleChange} list = {list}setList = {setList} total = {total} setTotal= {setTotal} discount = {discount} setDiscount= {setDiscount}/>
       </article>
 
       
