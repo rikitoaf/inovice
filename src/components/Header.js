@@ -6,9 +6,9 @@ export default function Header({handlePrint, logo})
 
    
   return (
-    <header className='flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between'>
+    <header className='flex flex-col items-center justify-center mb-5 xl:flex-row '>
         <div>
-        <img src={logo} alt="logo" className=" h-20" />
+        <img src={logo} alt="logo" className=" h-[150px] mb-15" />
         </div>
 
         {/* <div>

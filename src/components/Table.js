@@ -29,9 +29,9 @@ function Table({list,total } ) {
                 <tbody>
                 <tr >
                     <td >
-                        <p>{selectedTitle}</p>
+                        <p className='font-semibold'>{selectedTitle}</p>
                         {description}</td>
-                    <td><img src={file}  className="p-3 h-[200px] object-contain object-center" alt="" /></td>
+                    <td className='flex justify-center items-center'><img src={file}  className="p-3 h-[200px] object-contain object-center" alt="" /></td>
                     <td>{rate}</td>
                     <td>{quantity}</td>
                     <td>{amount}</td>

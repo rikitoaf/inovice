@@ -45,11 +45,25 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
                 <div class="ml-3">
                     <div class="font-bold text-left text-black ">Please Note</div>
                     <div class="w-full text-gray-900  mt-1">This quotation is based on the designs and requirements that you have provided to us. total price could be further decreased if the you customize the designs. <br />
-                    Customers are required to pay 75% in advance for event decorations. This payment is divided into two parts: 25% during  registration  and 50% before decoration. The remaining balance is due after completing the decorations.</div>
+                    Customers must pay the remaining balance after the decorations are completed. </div>
                 </div>
             </div>
         </li>
-
+        <li>
+        <section class="p-4">
+  <h2 class="text-xl font-bold mb-4">Bank Information</h2>
+  <div class="mb-2">
+    <h3 class="font-semibold">Bank Name</h3>
+    <p>{bankname}</p>
+  </div>
+  <div class="mb-2">
+    <h3 class="font-semibold">Account Number</h3>
+    <p>{bankaccountnumber}</p>
+  </div>
+  
+  
+</section>
+        </li>
         <li>
           For any query, Please Contact: <div>
                 <div class="mt-2 font-bold text-xl">
@@ -66,10 +80,28 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
                 </div>
             </div>
         </li>
-       
-      
+             
     </ul>
 </div>
+
+{/* <section class="bg-gray-100 p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-4">Bank Information</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-2">Bank Name</h3>
+      <p class="text-gray-700">Example Bank</p>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-2">Account Number</h3>
+      <p class="text-gray-700">1234567890</p>
+    </div>
+        
+  </div>
+</section> */}
+
+
+
+
     {/* <ul className='flex flex-wrap items-center justify-center'>
       <li><span className='font-bold'>your name:</span> {name}</li>
       <li><span className='font-bold'>your email:</span> {email}</li>

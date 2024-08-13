@@ -29,11 +29,11 @@ function App() {
   const [phone, setPhone] = useState("01974-547951")
   const [bankname, setBankName] = useState("Premiere Bank")
   const [website, setWebsite] = useState("www.festivida.com.bd")
-  const [bankaccountnumber, setBankAccountNumber] = useState("")
-  const [clientname, setClientName] = useState("")
-  const [clientaddress, setClientAddress] = useState("")
-  const [clientPhone, setClientPhone] = useState("")
-  const [venue, setVenue] = useState("")
+  const [bankaccountnumber, setBankAccountNumber] = useState("88888-88888-00000")
+  const [clientname, setClientName] = useState("Abdul Fattah Rakib")
+  const [clientaddress, setClientAddress] = useState("pulpar mohammadpur")
+  const [clientPhone, setClientPhone] = useState("80000")
+  const [venue, setVenue] = useState("Anam")
   const [venuedate, setVenueDate] = useState("")
   const [venuetype, setVenueType] = useState("")
   // const [selectedOption, setSelectedOption] = useState('');
@@ -72,10 +72,10 @@ function App() {
       {/* <MainDetails name= {name} address = {address} file= {file}/> */}
 
      
-      <ClientDetails clientname = {clientname} clientaddress = {clientaddress} clientPhone = {clientPhone}/>
+      <ClientDetails clientname = {clientname} clientaddress = {clientaddress} clientPhone = {clientPhone}  venue = {venue} venuetype = {venuetype} venuedate = {venuedate}/>
      
 
-      <Dates venue = {venue} venuetype = {venuetype} venuedate = {venuedate}/>
+      {/* <Dates venue = {venue} venuetype = {venuetype} venuedate = {venuedate}/> */}
 
       
       
@@ -102,7 +102,7 @@ function App() {
         <article className="md:grid grid-cols-2 gap-10">
 
           <div className="flex flex-col"> 
-            <label htmlFor="name">  Name</label>
+            <label htmlFor="name"> Name</label>
             <input type="text" name = "text" id = "name" placeholder=' name' autoComplete='off'
             value={name} onChange={(e) => setName(e.target.value)}/>
 
@@ -110,7 +110,7 @@ function App() {
 
 
           <div className="flex flex-col">
-            <label htmlFor="address">  Title</label>
+            <label htmlFor="address">Title</label>
             <input type="text" name = "text" id = "address" placeholder=' address' autoComplete='off'
             value={address} onChange={(e) => setAddress(e.target.value)}/>
           </div>
@@ -160,14 +160,14 @@ function App() {
 
         <article className="md:grid grid-cols-3 gap-10 md:mt-16">
           <div className="flex flex-col">
-          <label htmlFor="clientname">  Client Name</label>
+          <label htmlFor="clientname"> Client Name</label>
           <input type="text" name = "text" id = "clientname" placeholder=' clientname' autoComplete='off'
           value={clientname} onChange={(e) => setClientName (e.target.value)}/>
           </div>
 
           <div className="flex flex-col">
             
-            <label htmlFor="clientaddress">  Client Address</label>
+            <label htmlFor="clientaddress"> Client Address</label>
             <input type="text" name = "clientaddress" id = "clientaddress" placeholder=' clientaddress' autoComplete='off'
             value={clientaddress} onChange={(e) => setClientAddress(e.target.value)}/>
 
@@ -175,7 +175,7 @@ function App() {
 
           <div className="flex flex-col">
             
-            <label htmlFor="clientPhone">  Client Contact Number</label>
+            <label htmlFor="clientPhone"> Client Contact Number</label>
             <input type="text" name = "clientPhone" id = "clientPhone" placeholder=' clientPhone' autoComplete='off'
             value={clientPhone} onChange={(e) => setClientPhone(e.target.value)}/>
 
@@ -196,20 +196,33 @@ function App() {
 
           <div className="flex flex-col"> 
 
-          <label htmlFor="venuedate">  Venue Date</label>
+          <label htmlFor="venuedate">  Program Date</label>
           <input type="date" name = "text" id = "venuedate" placeholder=' invoicedate' autoComplete='off'
           value={venuedate} onChange={(e) => setVenueDate(e.target.value)} />
           </div>
 
           <div className="flex flex-col"> 
-            <label htmlFor="venuetype">  Venue Type</label>
+            <label htmlFor="venuetype"> Program Type</label>
             
 
             <select value={venuetype} onChange={(e) => setVenueType(e.target.value)}>
             <option value="">select venue Type</option>
+            <option value="akht">Akht</option>
+            <option value="Amusement">Amusement</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Baby Shower">Baby Shower</option>
+            <option value="Christmas">Christmas</option>
+            <option value="Corporate Party">Corporate Party</option>
+            <option value="Cultural program">Cultural program</option>
+            <option value="Convocation">Convocation</option>
+            <option value="Fair">Fair</option>
+            <option value="Graduation">Graduation</option>       
             <option value="Holud">Holud</option>
             <option value="Mehedi">Mehedi</option>
-            <option value="Marriage">Marriage</option>
+            <option value="Reception">Reception</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Weeding">Weeding</option>
+                        
             {/* Add more options as needed */}
           </select>
           
@@ -227,13 +240,10 @@ function App() {
       
        
 
-        <label htmlFor="notes">  notes</label>
+        <label htmlFor="notes"> Notes</label>
         <input type="notes" cols = "30" rows = "10" name = "text" id = "notes" placeholder='Aditional notes to the client' autoComplete='off'
         value={notes} onChange={(e) => setNotes(e.target.value)}/>
 
-       
-       
-        
         <button onClick= {(e)=> setShowInvoice(true)}className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300'>Preview Invoice</button>
        </div>
         </>)
