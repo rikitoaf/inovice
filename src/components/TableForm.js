@@ -177,7 +177,7 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
         {list.map(({id, selectedTitle, description, quantity, rate, file, amount}) => (
             <React.Fragment key={id}>
                 <tbody>
-                <tr >
+                {/* <tr >
                   <td>{selectedTitle}</td>
                     <td>
 
@@ -189,7 +189,19 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
                     <td className= "amount">{amount}</td>
                     <td><button className= "text-red-500 font-bold text-xl"onClick={()=> deleteRow(id)}><AiOutlineDelete/></button></td>
                     <td><button className= "text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineEdit/></button></td>
-                </tr>
+                </tr> */}
+                 <tr key={id} className="border">
+                            <td className="p-2 border" data-label="Title">{selectedTitle}</td>
+                            <td className="p-2 border" data-label="Description">{description}</td>
+                            <td className="p-2 border" data-label="Sample Design"><img src={file} className="h-20" alt="" /></td>
+                            <td className="p-2 border" data-label="Rate">{rate}</td>
+                            <td className="p-2 border" data-label="Quantity">{quantity}</td>
+                            <td className= "amount">{amount}</td>
+                            <td className="p-2 border">
+                                <button className="text-red-500 font-bold text-xl" onClick={() => deleteRow(id)}><AiOutlineDelete /></button>
+                                <button className="text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineEdit /></button>
+                            </td>
+                        </tr>
             </tbody>
             </React.Fragment>
 

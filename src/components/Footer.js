@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Footer({name,email,website,address, phone, bankname, bankaccountnumber,clientname}) {
+function Footer({name,email,website,address, phone, bankname, bankaccountnumber,clientname,showField, branchname,bankroutenumber}) {
   return (
     
     <footer className='footer border-t-2 border-gray-300 pt-10'>
@@ -50,21 +50,36 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
             </div>
         </li>
         <li>
-        <section class="p-4">
-  <h2 class="text-xl font-bold mb-4">Bank Information</h2>
-  <div class="mb-2">
-    <h3 class="font-semibold">Bank Name</h3>
-    <p>{bankname}</p>
-  </div>
-  <div class="mb-2">
-    <h3 class="font-semibold">Account Number</h3>
-    <p>{bankaccountnumber}</p>
-  </div>
-  
-  
-</section>
+        {showField  &&  (
+          
+          <div className = "pt-10">
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md ">
+          <h2 class="text-2xl font-bold mb-4">Bank Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-2">Bank Name</h3>
+              <p class="text-gray-700">{bankname}</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-2">Account Number</h3>
+              <p class="text-gray-700">{bankaccountnumber}</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-2">Branch Name </h3>
+              <p class="text-gray-700">{branchname}</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h3 class="text-xl font-semibold mb-2">Routing Number</h3>
+              <p class="text-gray-700">{bankroutenumber}</p>
+            </div>
+        
+        </div>
+      </div>
+          </div>)}
+          
+        
         </li>
-        <li>
+        <li className='pt-10'>
           For any query, Please Contact: <div>
                 <div class="mt-2 font-bold text-xl">
                     {name}
@@ -84,20 +99,7 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
     </ul>
 </div>
 
-{/* <section class="bg-gray-100 p-6 rounded-lg shadow-md">
-  <h2 class="text-2xl font-bold mb-4">Bank Information</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-white p-4 rounded-lg shadow">
-      <h3 class="text-xl font-semibold mb-2">Bank Name</h3>
-      <p class="text-gray-700">Example Bank</p>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-      <h3 class="text-xl font-semibold mb-2">Account Number</h3>
-      <p class="text-gray-700">1234567890</p>
-    </div>
-        
-  </div>
-</section> */}
+
 
 
 
