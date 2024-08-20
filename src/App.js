@@ -28,13 +28,11 @@ function App() {
   const [email, setEmail] = useState("festivida74@gmail.com")
   const [phone, setPhone] = useState("01974-547951")
   const [bankname, setBankName] = useState("Premiere Bank")
-  const [branchname, setBranchName] = useState("Dhanmondi")
   const [website, setWebsite] = useState("www.festivida.com.bd")
   const [bankaccountnumber, setBankAccountNumber] = useState("88888-88888-00000")
-  const [bankroutenumber, setBankRouteNumber] = useState("88888-88888-00000")
   const [clientname, setClientName] = useState("Abdul Fattah Rakib")
   const [clientaddress, setClientAddress] = useState("pulpar mohammadpur")
-  const [clientPhone, setClientPhone] = useState("01545680000")
+  const [clientPhone, setClientPhone] = useState("80000")
   const [venue, setVenue] = useState("Anam")
   const [venuedate, setVenueDate] = useState("")
   const [venuetype, setVenueType] = useState("")
@@ -52,7 +50,6 @@ function App() {
   const [total, setTotal] = useState(0)
   const [selectedTitle, setSelectedTitle] = useState('');
   const [discount, setDiscount] = useState(0)
-  const [showField, setShowField] = useState(false);
 
   const componentRef = useRef()
 
@@ -60,10 +57,6 @@ function App() {
       console.log(e.target.files);
       setFile(URL.createObjectURL(e.target.files[0]));
   }
-
-  const handleRadioChange = (event) => {
-    setShowField(event.target.value === 'yes');
-  };
 
 
   return (
@@ -90,11 +83,11 @@ function App() {
           
       <Table selectedTitle = {selectedTitle} description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal} />
 
-      <Bill  total={total} discount = {discount} />
+      <Bill  total={total} />
 
      
       <Notes notes = {notes}/>
-      <Footer name={name} address= {address} website = {website} email = {email} phone = {phone} bankname = {bankname} bankaccountnumber= {bankaccountnumber} branchname = {branchname} bankroutenumber = {bankroutenumber}  clientname = {clientname} showField = {showField} />
+      <Footer name={name} address= {address} website = {website} email = {email} phone = {phone} bankname = {bankname} bankaccountnumber= {bankaccountnumber}  clientname = {clientname} />
 
       
       </div>
@@ -136,7 +129,7 @@ function App() {
           </div>
 
           <div className="flex flex-col"> 
-          <label htmlFor="phone">Phone</label>
+          <label htmlFor="phone">  Phone</label>
           <input type="text" name = "text" id = "phone" placeholder=' phone' autoComplete='off'
           value={phone} onChange={(e) => setPhone(e.target.value)}/>
           </div>
@@ -152,35 +145,7 @@ function App() {
         </article>
 
 
-        <article className="md:grid grid-cols-2 gap-3">
-
-            <div className='flex flex-col'>
-           <label htmlFor="Bank Information"> Need Bank info?</label>
-            <label>
-              
-          <input
-            type="radio"
-            name="toggleField"
-            value="yes"
-            onChange={handleRadioChange}
-          />
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="toggleField"
-            value="no"
-            onChange={handleRadioChange}
-          />
-          No
-        </label>
-            </div>
-
-
-            {showField && (
-              <>
-              
+        <article className="md:grid grid-cols-2 gap-10">
         <div className="flex flex-col"> 
           <label htmlFor="bankname">  Bank Name</label>
           <input type="text" name = "text" id = "bankname" placeholder=' Bank Name' autoComplete='off'
@@ -191,24 +156,8 @@ function App() {
           <input type="text" name = "text" id = "bankaccountnumber" placeholder=' Bank Account Number' autoComplete='off'
           value={bankaccountnumber} onChange={(e) => setBankAccountNumber(e.target.value)}/>
         </div>
-        <div className="flex flex-col"> 
-          <label htmlFor="BankBranchName ">  Branch Name</label>
-          <input type="text" name = "text" id = "branchname" placeholder=' Branch Name' autoComplete='off'
-          value={branchname} onChange={(e) => setBranchName(e.target.value)}/>
-        </div>
-        <div className="flex flex-col"> 
-          <label htmlFor="BankRouteNumber ">  Bank Route Number</label>
-          <input type="text" name = "text" id = "RouteNumber" placeholder=' Route Number' autoComplete='off'
-          value={bankroutenumber} onChange={(e) => bankroutenumber(e.target.value)}/>
-        </div>
-              </>
-            )}
-
        
         </article>
-
-
-
 
         <article className="md:grid grid-cols-3 gap-10 md:mt-16">
           <div className="flex flex-col">
@@ -227,7 +176,7 @@ function App() {
 
           <div className="flex flex-col">
             
-            <label htmlFor="clientPhone"> Client Phone No.</label>
+            <label htmlFor="clientPhone"> Client Contact Number</label>
             <input type="text" name = "clientPhone" id = "clientPhone" placeholder=' clientPhone' autoComplete='off'
             value={clientPhone} onChange={(e) => setClientPhone(e.target.value)}/>
 
@@ -260,7 +209,7 @@ function App() {
             
 
             <select value={venuetype} onChange={(e) => setVenueType(e.target.value)}>
-            <option value="">Select Prog. Type</option>
+            <option value="">select venue Type</option>
             <option value="akht">Akht</option>
             <option value="Amusement">Amusement</option>
             <option value="Birthday">Birthday</option>
