@@ -1,10 +1,10 @@
 import React from 'react'
-
+import './Table.css'
 
 function Table({list,total } ) {
   return (
     <>
-        <table width = "100%" className=' mb-10 table-fixed'>
+        <table width = "100%" className=' mb-10 table-fixed desktop-only'>
             <thead className=''>
                 <tr className='bg-gray-100 p-6'>
                     <td className='font-bold w-1/8'> 
