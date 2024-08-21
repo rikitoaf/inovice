@@ -4,7 +4,8 @@ import './Table.css'
 function Table({list,total } ) {
   return (
     <>
-                <table width = "100%" className=' mb-10 table-fixed'>
+                <div className='desktop-only'>
+                <table width = "100%" className=' mb-10 table-fixed '>
             <thead className=''>
                 <tr className='bg-gray-100 p-6'>
                     <td className='font-bold w-1/8'> 
@@ -42,9 +43,10 @@ function Table({list,total } ) {
         ))}
             
         </table>
+                </div>
 
 
-{/* <table width = "100%" className=' mb-10 mobile-only hidden'>
+<table width = "100%" className=' mb-10 mobile-only hidden'>
             <thead>
                 <tr className='bg-gray-100 p-1'>
                     <td className="font-bold p-2 border">Title</td>
@@ -74,7 +76,7 @@ function Table({list,total } ) {
 
         ))}
             
-        </table> */}
+        </table>
 
         
        
