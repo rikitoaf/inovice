@@ -4,6 +4,8 @@ import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai"
 import { v4 as uuidv4 } from 'uuid';
 import TitleNames from './TitleName';
 
+import './Table.css'
+
 
 export default function TableForm({selectedTitle, setSelectedTitle, description, setDescription , rate , setRate,quantity, setQuantity, amount ,setAmount,file, setFile,handleChange, list, setList, total, setTotal, discount , setDiscount}) {
   const [isEditing, setEditing] = useState(false)

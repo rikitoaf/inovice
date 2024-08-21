@@ -13,6 +13,7 @@ import Table from './components/Table';
 import TableForm from './components/TableForm';
 import ReactToPrint from 'react-to-print';
 import Bill from './components/Bill';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
   const [total, setTotal] = useState(0)
   const [selectedTitle, setSelectedTitle] = useState('');
   const [discount, setDiscount] = useState(0)
+  const isMediumScreen = useMediaQuery('(min-width:601px)');
 
   const componentRef = useRef()
 
@@ -80,10 +82,10 @@ function App() {
 
       
       
-          
+      
       <Table selectedTitle = {selectedTitle} description = {description }rate= {rate} quantity= {quantity } amount=  { amount }  file = {file} handleFileChange= {handleChange} list = {list} setList = {setList} total = {total} setTotal= {setTotal} />
-
-      <Bill  total={total} />
+      
+      <Bill  total={total} discount = {discount} />
 
      
       <Notes notes = {notes}/>

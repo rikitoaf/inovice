@@ -3,6 +3,8 @@ import React from 'react'
 export default function Bill( {total, discount}) {
     const numberToWords  = require('number-to-words');
                  let inWords = numberToWords.toWords(total)
+    
+      console.log (discount);
    
   return (
     <>
