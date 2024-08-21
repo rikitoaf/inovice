@@ -158,22 +158,13 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
       <table width = "100%" className=' mb-10'>
             <thead>
                 <tr className='bg-gray-100 p-1'>
-                    <td className='font-bold'>Title</td>
-                    <td className='font-bold'> 
-                        Description
-                    </td>
-                    <td className='font-bold'>
-                        Sample Design 
-                    </td>
-                    <td className='font-bold'>
-                        Rate
-                    </td>
-                    <td className='font-bold'>
-                        Quantity
-                    </td>
-                    <td className='font-bold'>
-                         Amount
-                    </td>
+                    <th className="font-bold p-2 border">Title</th>
+                    <th className="font-bold p-2 border">Description</th>
+                    <th className="font-bold p-2 border">Sample Design</th>
+                    <th className="font-bold p-2 border">Rate</th>
+                    <th className="font-bold p-2 border">Quantity</th>
+                    <th className="font-bold p-2 border">Amount</th>
+                    <th className="font-bold p-2 border">Actions</th>
                 </tr>
             </thead>
         {list.map(({id, selectedTitle, description, quantity, rate, file, amount}) => (
@@ -198,8 +189,8 @@ export default function TableForm({selectedTitle, setSelectedTitle, description,
                             <td className="p-2 border" data-label="Sample Design"><img src={file} className="h-20" alt="" /></td>
                             <td className="p-2 border" data-label="Rate">{rate}</td>
                             <td className="p-2 border" data-label="Quantity">{quantity}</td>
-                            <td className= "amount">{amount}</td>
-                            <td className="p-2 border">
+                            <td className= "amount" data-label="Amount">{amount}</td>
+                            <td className="p-2 border" data-label="Actions">
                                 <button className="text-red-500 font-bold text-xl" onClick={() => deleteRow(id)}><AiOutlineDelete /></button>
                                 <button className="text-green-500 font-bold text-xl" onClick={() => editRow(id)}><AiOutlineEdit /></button>
                             </td>
