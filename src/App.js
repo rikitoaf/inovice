@@ -23,7 +23,10 @@ function App() {
     window.print()
   }
 
-
+  const [branchname, setBranchName] = useState("Dhanmondi")
+  const [bankroutenumber, setBankRouteNumber] = useState("88888-88888-00000")
+  
+  const [showField, setShowField] = useState(false);
   const [name, setName] = useState("Moynal Hossain Saeed")
   const [address, setAddress] = useState("Executive Director")
   const [email, setEmail] = useState("festivida74@gmail.com")
@@ -54,6 +57,10 @@ function App() {
   const isMediumScreen = useMediaQuery('(min-width:601px)');
 
   const componentRef = useRef()
+
+  const handleRadioChange = (event) => {
+    setShowField(event.target.value === 'yes');
+  };
 
     function handleChange(e) {
       console.log(e.target.files);
@@ -89,7 +96,7 @@ function App() {
 
      
       <Notes notes = {notes}/>
-      <Footer name={name} address= {address} website = {website} email = {email} phone = {phone} bankname = {bankname} bankaccountnumber= {bankaccountnumber}  clientname = {clientname} />
+      <Footer name={name} address= {address} website = {website} email = {email} phone = {phone} bankname = {bankname} bankaccountnumber= {bankaccountnumber} branchname = {branchname} bankroutenumber = {bankroutenumber}  clientname = {clientname} showField = {showField} />
 
       
       </div>
@@ -147,7 +154,31 @@ function App() {
         </article>
 
 
-        <article className="md:grid grid-cols-2 gap-10">
+        <article className="md:grid grid-cols-2 gap-3">
+            <div className='flex flex-col'>
+           <label htmlFor="Bank Information"> Need Bank info?</label>
+            <label>
+              
+          <input
+            type="radio"
+            name="toggleField"
+            value="yes"
+            onChange={handleRadioChange}
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="toggleField"
+            value="no"
+            onChange={handleRadioChange}
+          />
+          No
+        </label>
+            </div>
+            {showField && (
+              <>
         <div className="flex flex-col"> 
           <label htmlFor="bankname">  Bank Name</label>
           <input type="text" name = "text" id = "bankname" placeholder=' Bank Name' autoComplete='off'
@@ -158,6 +189,18 @@ function App() {
           <input type="text" name = "text" id = "bankaccountnumber" placeholder=' Bank Account Number' autoComplete='off'
           value={bankaccountnumber} onChange={(e) => setBankAccountNumber(e.target.value)}/>
         </div>
+        <div className="flex flex-col"> 
+          <label htmlFor="BankBranchName ">  Branch Name</label>
+          <input type="text" name = "text" id = "branchname" placeholder=' Branch Name' autoComplete='off'
+          value={branchname} onChange={(e) => setBranchName(e.target.value)}/>
+        </div>
+        <div className="flex flex-col"> 
+          <label htmlFor="BankRouteNumber ">  Bank Route Number</label>
+          <input type="text" name = "text" id = "RouteNumber" placeholder=' Route Number' autoComplete='off'
+          value={bankroutenumber} onChange={(e) => bankroutenumber(e.target.value)}/>
+        </div>
+              </>
+            )}
        
         </article>
 
@@ -178,7 +221,7 @@ function App() {
 
           <div className="flex flex-col">
             
-            <label htmlFor="clientPhone"> Client Contact Number</label>
+            <label htmlFor="clientPhone"> Phone No.</label>
             <input type="text" name = "clientPhone" id = "clientPhone" placeholder=' clientPhone' autoComplete='off'
             value={clientPhone} onChange={(e) => setClientPhone(e.target.value)}/>
 
