@@ -1,7 +1,7 @@
 
 import '../App.css';
 import {useState, useRef} from "react";
-import logo from "../assets/festivida.png";
+import logo from "../assets/lifestories.png";
 
 import ClientDetails from './ClientDetails';
 import Dates from './Dates';
@@ -28,11 +28,11 @@ function HomePage() {
   
   const [showField, setShowField] = useState(false);
   const [name, setName] = useState("Moynal Hossain Saeed")
-  const [address, setAddress] = useState("Executive Director")
-  const [email, setEmail] = useState("festivida74@gmail.com")
+  const [address, setAddress] = useState("Executive Director & Event Planner")
+  const [email, setEmail] = useState("lifestoriesevent21@gmail.com")
   const [phone, setPhone] = useState("01974-547951")
   const [bankname, setBankName] = useState("Premiere Bank")
-  const [website, setWebsite] = useState("www.festivida.com.bd")
+  const [website, setWebsite] = useState("lifestoriesbd.com")
   const [bankaccountnumber, setBankAccountNumber] = useState("88888-88888-00000")
   const [clientname, setClientName] = useState("Abdul Fattah Rakib")
   const [clientaddress, setClientAddress] = useState("pulpar mohammadpur")
@@ -103,7 +103,7 @@ function HomePage() {
 
       
       </div>
-      <button onClick = {()=> setShowInvoice(false)} className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300 mt-5'>Edit Information</button>
+      <button onClick = {()=> setShowInvoice(false)} className='bg-[#A53573] text-white font-bold py-2 px-8 rounded shadow border-2 border-[#A53573] hover:bg-transparent hover:text-[#A53573] transition-all duration-300 mt-5'>Edit Information</button>
       </>
       : (
         <>
@@ -304,7 +304,7 @@ function HomePage() {
         <input type="notes" cols = "30" rows = "10" name = "text" id = "notes" placeholder='Aditional notes to the client' autoComplete='off'
         value={notes} onChange={(e) => setNotes(e.target.value)}/>
 
-        <button onClick= {(e)=> setShowInvoice(true)}className='bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300'>Preview Invoice</button>
+        <button onClick= {(e)=> setShowInvoice(true)}className='bg-[#A53573] text-white font-bold py-2 px-8 rounded shadow border-2 border-[#A53573] hover:bg-transparent hover:text-[#A53573] transition-all duration-300'>Preview Invoice</button>
        </div>
         </>)
       }

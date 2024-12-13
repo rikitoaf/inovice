@@ -9,7 +9,7 @@ const LoginPage = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         // Dummy authentication logic
-        if (username === "user" && password === "password") {
+        if (username === "lifestories" && password === "password") {
             localStorage.setItem("isAuthenticated", "true");
             navigate("/home"); // Use navigate instead of history.push
         } else {
@@ -42,11 +42,11 @@ const LoginPage = () => {
                     />
                 </label>
             </div>
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
+            <button type="submit" className="w-full bg-[#A53573] text-white p-2 rounded">
                 Login
             </button>
             <footer className="mt-4 text-center">
-                <p>© 2023 Agventure Consultancy</p>
+                <p>©2024 Agventure Consultancy</p>
             </footer>
         </form>
     );
