@@ -91,7 +91,10 @@ function Footer({name,email,website,address, phone, bankname, bankaccountnumber,
                     House # 460/A, Road #6, Avenue #7, Mirpur DOHS, Dhaka, Bangladesh
                 </div>
                 <div>
-                    {phone}
+                    Contact no: {phone}
+                </div>
+                <div>
+                    {email}
                 </div>
             </div>
         </li>
